@@ -27,8 +27,7 @@ import { PipeBolBoldLetterPipe } from './bold-letter.pipe';
   `,
   providers: [StateService],
 })
-export class App implements OnInit {
-  name = 'Angular';
+export class App {
   #state = inject(StateService);
 
   filter = new FormControl('');
@@ -40,8 +39,6 @@ export class App implements OnInit {
       states.filter((state) => state.name.includes(filter || ''))
     )
   );
-
-  ngOnInit(): void {}
 }
 
 bootstrapApplication(App);
