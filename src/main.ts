@@ -36,7 +36,9 @@ export class App {
   states$ = this.#state.getState$();
   list$ = combineLatest([this.states$, this.filter$]).pipe(
     map(([states, filter]) =>
-      states.filter((state) => state.name.includes(filter || ''))
+      states.filter((state) =>
+        state.name.toLowerCase().includes(filter?.toLowerCase() || '')
+      )
     )
   );
 }
